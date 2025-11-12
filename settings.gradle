@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()   // Vosk、Compose Compiler 都在这里
+    }
+}
+
+rootProject.name = "AndroidToArduinoOr"
+include ':app'          // 只保留 app 模块
+// include ':models'    // 删除这行！（你已经决定不使用 models 模块）

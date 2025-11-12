@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.androidtoarduinoor'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.androidtoarduinoor"
+        minSdk 21
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildFeatures {
+            compose true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.3.2"  // Vosk 强制要求
+    }
+}
+tasks.register('genUUID') {
+    def uuid = UUID.randomUUID().toString()
+    def outputDir = file("$buildDir/generated/assets/model")
+    def uuidFile = file("$outputDir/uuid")
+    doLast {
+        mkdir outputDir
+        uuidFile.text = uuid
+        println "Generated UUID: $uuid"
+    }
+}
+preBuild.dependsOn genUUID
+
+android {
+    sourceSets {
+        main {
+            assets.srcDirs += "$buildDir/generated/assets"
+        }
+    }
+}
+
+dependencies {
+    // 旧版 Compose（兼容 1.3.2）
+    implementation 'androidx.compose.ui:ui:1.3.3'
+    implementation 'androidx.compose.ui:ui-graphics:1.3.3'
+    implementation 'androidx.compose.ui:ui-tooling-preview:1.3.3'
+    implementation 'androidx.compose.material3:material3:1.0.1'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.3.3'
+
+    // Core
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+
+    // Vosk
+    implementation('com.alphacephei:vosk-android:0.3.70') {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    }
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.20'
+}
