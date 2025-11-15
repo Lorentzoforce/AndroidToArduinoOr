@@ -11,7 +11,7 @@
         android:id="@+id/text_voice_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="设备状态"
+        android:text="Device status"
         android:textSize="18sp"
         android:paddingBottom="10dp"/>
 
@@ -39,13 +39,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="关闭" />
+            android:text="Close" />
 
         <Button
             android:id="@+id/button_minimize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="最小化" />
+            android:text="minimize" />
     </LinearLayout>
 </LinearLayout>

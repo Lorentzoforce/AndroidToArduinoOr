@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="设备名称"
+                android:text="Devices Name"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginHorizontal="6dp"
-                android:hint="输入消息"
+                android:hint="Input message"
                 android:padding="6dp"
                 android:maxLines="5"
                 android:scrollbars="vertical"

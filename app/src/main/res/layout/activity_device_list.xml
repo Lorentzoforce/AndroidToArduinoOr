@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="#FFEB3B"
         android:textColor="#000"
-        android:text="横幅"
+        android:text="Banner"
         android:padding="8dp"
         android:visibility="gone"/>
 
@@ -29,14 +29,14 @@
         android:id="@+id/button_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="刷新列表"
+        android:text="Refresh list"
         android:layout_marginBottom="4dp"/>
 
     <Button
         android:id="@+id/button_close_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="关闭所有设备语音转文字功能"
+        android:text="Turn off the voice-to-text function on all devices."
         android:layout_marginBottom="8dp"
         android:visibility="gone"/>
 
